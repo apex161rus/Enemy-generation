@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Positions : MonoBehaviour
+public class SpawnPoint : MonoBehaviour
 {
     [SerializeField] private GameObject[] _spawnPositions;
 

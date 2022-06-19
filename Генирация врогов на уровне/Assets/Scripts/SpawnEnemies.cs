@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Positions))]
+[RequireComponent(typeof(SpawnPoint))]
 
-public class Spawn : MonoBehaviour
+public class SpawnEnemies : MonoBehaviour
 {
     [SerializeField] private GameObject _enemy;
 
-    private Positions _positions;
+    private SpawnPoint _positions;
 
     private void Start()
     {
-        _positions = GetComponent<Positions>();
-        StartCoroutine(SpawnEnemies());
+        _positions = GetComponent<SpawnPoint>();
+        StartCoroutine(EnemyGeneration());
     }
 
-    private IEnumerator SpawnEnemies()
+    private IEnumerator EnemyGeneration()
     {
         var waitForSeconds = new WaitForSeconds(2f);
 
