@@ -780,9 +780,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPositions:
+  - {fileID: 665751037}
   - {fileID: 2084855025}
   - {fileID: 282691733}
-  - {fileID: 665751037}
 --- !u!1 &664686280
 GameObject:
   m_ObjectHideFlags: 0
