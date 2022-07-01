@@ -3,9 +3,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpawnPoints))]
 
-public class EnemyRender : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemy;
+    [Tooltip("Insert a prefab with an enemy to generate")]
+    [SerializeField] private Object _enemy;
 
     private SpawnPoints _points;
 
