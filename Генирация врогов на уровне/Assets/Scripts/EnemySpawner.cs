@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
         foreach (var enemy in _points.Spawn)
         {
             yield return waitForSeconds;
-            Instantiate(_еnemy.GetEnemy, enemy.transform.position, Quaternion.identity);
+            Instantiate(_еnemy.Object, enemy.transform.position, Quaternion.identity);
         }
     }
 }
