@@ -2,17 +2,17 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpawnPoints))]
+[RequireComponent(typeof(Enemy))]
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Tooltip("Insert a prefab with an enemy to generate")]
-    [SerializeField] private Object _enemy;
-
+    private Enemy _object;
     private SpawnPoints _points;
 
     private void Start()
     {
         _points = GetComponent<SpawnPoints>();
+        _object = GetComponent<Enemy>();
         StartCoroutine(EnemyGeneration());
     }
 
@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
         foreach (var enemy in _points.Spawn)
         {
             yield return waitForSeconds;
-            Instantiate(_enemy, enemy.transform.position, Quaternion.identity);
+            Instantiate(_object.GetEnemy, enemy.transform.position, Quaternion.identity);
         }
     }
 }
