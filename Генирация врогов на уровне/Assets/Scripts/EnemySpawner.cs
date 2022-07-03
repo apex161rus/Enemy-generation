@@ -2,28 +2,27 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpawnPoints))]
-[RequireComponent(typeof(Enemy))]
 
 public class EnemySpawner : MonoBehaviour
 {
-    private Enemy _object;
+    [SerializeField] private Enemy _enemy;
+
     private SpawnPoints _points;
 
     private void Start()
     {
         _points = GetComponent<SpawnPoints>();
-        _object = GetComponent<Enemy>();
-        StartCoroutine(EnemyGeneration());
+        StartCoroutine(CreateEnemies());
     }
 
-    private IEnumerator EnemyGeneration()
+    private IEnumerator CreateEnemies()
     {
         var waitForSeconds = new WaitForSeconds(2f);
 
         foreach (var enemy in _points.Spawn)
         {
             yield return waitForSeconds;
-            Instantiate(_object.GetEnemy, enemy.transform.position, Quaternion.identity);
+            Instantiate(_enemy, enemy.transform.position, Quaternion.identity);
         }
     }
 }
